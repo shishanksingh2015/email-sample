@@ -31,10 +31,10 @@ curl -s -H "Content-Type: application/json" \
     }' | jq
 ```
  ### Docker
-Pull the docker image from the docker hub
+Build docker image with Command
+docker build --rm -t email-sample-image .
 
 Run the command
-
 docker run -p 5000:5000 email-sample-image
 
 
