@@ -20,7 +20,7 @@ import (
 
 func TestCreateAndValidateToken(t *testing.T) {
 	request := generatetoken.Claims{
-		RequestorEmail: "singhshishank2012@gmail.com",
+		RequestorEmail: "enteremail@gmail.com",
 		TraceId:        "xxxxx-xxxx-xxxxx-xxxx",
 	}
 	claims, _ := json.Marshal(request)
@@ -29,7 +29,7 @@ func TestCreateAndValidateToken(t *testing.T) {
 	c, err := GetClaims(token)
 	assert.NoError(t, err)
 	info := c["info"]
-	assert.Equal(t, `{"requestorEmail":"singhshishank2012@gmail.com","traceId":"xxxxx-xxxx-xxxxx-xxxx"}`, info)
+	assert.Equal(t, `{"requestorEmail":"enter_email@gmail.com","traceId":"xxxxx-xxxx-xxxxx-xxxx"}`, info)
 }
 
 func GetClaims(encoded string) (jwt.MapClaims, error) {
@@ -69,7 +69,7 @@ func TestGenerateToken(t *testing.T) {
 			return r
 		}
 		Convey("POST /generate-token should return 200 OK", func() {
-			var validReqData = `{"requestorEmail": "singhshishank2012@gmail.com"}`
+			var validReqData = `{"requestorEmail": "enter_email@gmail.com"}`
 			req := NewRequest(http.MethodPost, ts.URL+"/generate-token", bytes.NewBuffer([]byte(validReqData)))
 			req.Header.Set("Content-Type", "application/json")
 			resp, err := http.DefaultClient.Do(req)
