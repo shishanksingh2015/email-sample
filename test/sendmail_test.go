@@ -19,7 +19,7 @@ import (
 
 func GetToken() string {
 	request := generatetoken.Claims{
-		RequestorEmail: "singhshishank2012@gmail.com",
+		RequestorEmail: "enter_email@gmail.com",
 		TraceId:        "xxxxx-xxxx-xxxxx-xxxx",
 	}
 	claims, _ := json.Marshal(request)
@@ -44,7 +44,7 @@ func TestSendEmail(t *testing.T) {
 			return r
 		}
 		Convey("It should not return error when valid requests is sent", func() {
-			var validReqData = `{"from": "singhshishank2012@gmail.com","from_name": "senderName","to": "singhshishank2012@gmail.com",
+			var validReqData = `{"from": "enter_email@gmail.com","from_name": "senderName","to": "enter_email@gmail.com",
 				"to_name": "recipientName","subject": "demo for api test","content": "demo tested"}`
 			req := NewRequest(http.MethodPost, ts.URL+"/v1/sendmail?", bytes.NewBuffer([]byte(validReqData)))
 			req.Header.Set("Content-Type", "application/json")
@@ -77,7 +77,7 @@ func TestSendEmail(t *testing.T) {
 			var inValidReqData = `{
 				"from": "shishank",
 				"from_name": "senderName",
-				"to": "singhshishank2012@gmail.com",
+				"to": "enter_email@gmail.com",
 				"to_name": "recipientName",
 				"subject": "demo for api test",
 				"content": "demo tested"
