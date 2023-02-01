@@ -1,3 +1,0 @@
-gitenv: local
-sendGridApiKey: "ENTER SENDGRID API KEY"
-authSecret: "CREATE ANY RANDOM AUTH KEY FOR API SECURITY"
