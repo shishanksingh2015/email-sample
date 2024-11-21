@@ -6,5 +6,5 @@ import (
 )
 
 func Get(c echo.Context) error {
-	return c.String(http.StatusOK, "OK-Email api status")
+	return c.String(http.StatusOK, "OK-Email api status health check")
 }
